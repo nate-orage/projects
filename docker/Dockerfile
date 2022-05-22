@@ -13,7 +13,6 @@ WORKDIR $HTTPD_PREFIX
 # https://httpd.apache.org/docs/2.4/install.html#requirements
 RUN set -eux; \
 	apt-get update; \
-	apt-get install -y git; \
 	apt-get install -y --no-install-recommends \
 		libaprutil1-ldap \
 # https://github.com/docker-library/httpd/issues/209
@@ -228,14 +227,12 @@ RUN set -eux; \
 	apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false; \
 	\
 # smoke test
-	httpd -v \
+	httpd -v
 
 # https://httpd.apache.org/docs/2.4/stopping.html#gracefulstop
 STOPSIGNAL SIGWINCH
 
-WORKDIR /usr/local/apache2/htdocs
-COPY page.html index.html
-CMD git clone https://github.com/nate-orage/nateorage.com.git .
+COPY page.html /usr/local/apache2/htdocs/index.html
 
 EXPOSE 80
 CMD apachectl -D FOREGROUND
