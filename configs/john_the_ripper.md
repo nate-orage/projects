@@ -7,9 +7,13 @@ apt install john
 unshadow /etc/passwd /etc/shadow > unshadowed.txt
 ```
 ## Cracking in single mode
+```bash
 john -single unshadowed.txt
+```
 ## Brute force and dict attacks
+```bash
 john --wordlist=/usr/share/john/password.lst --rules unshadowed.txt
+```
 ## Dict files
 /usr/share/dict
 /usr/share/metasploit-framework/data/wordlists (kali)
