@@ -1,0 +1,10 @@
+version: '3'
+services:
+  redis-server:
+    image: 'redis'
+  node-app:
+    # Restart codes: no, always, on-failure, unless-stopped. No needs to be in quotes.
+    #restart: always
+    build: .
+    ports:
+      - '4001:8081'
