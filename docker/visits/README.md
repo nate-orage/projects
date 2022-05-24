@@ -10,3 +10,14 @@ docker-compose build
 docker-compose up
 # Build the container and run it in the backgroud
 docker-compose up --build -d
+```
+## Common Docker commands
+```bash
+docker images # List docker images 
+docker container ls # List RUNNING docker containers
+docker container ls -a # List ALL docker containers
+docker container stop
+docker exec -it <Container ID> /bin/bash # Access running container via bash shell.
+docker container rm <Container ID> # Delete docker container. Container must be stopped.
+docker rmi <Image ID> # Delete image. Image must not be present on any existing docker containers. If so, the containers must be deleted before deleting the image.
+```
