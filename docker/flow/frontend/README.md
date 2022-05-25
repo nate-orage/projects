@@ -69,6 +69,13 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
-## Docker Commands
-
-`docker run -p 3000:3000 -v /app/node_modules -v $(pwd):/app` <image ID>
+## Common Docker Commands
+```bash
+docker images # List docker images 
+docker container ls # List RUNNING docker containers
+docker container ls -a # List ALL docker containers
+docker container stop
+docker exec -it <Container ID> /bin/bash # Access running container via bash shell.
+docker container rm <Container ID> # Delete docker container. Container must be stopped.
+docker rmi <Image ID> # Delete image. Image must not be present on any existing docker containers. If so, the containers must be deleted before deleting the image.
+```
