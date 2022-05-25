@@ -12,3 +12,15 @@ services:
     volumes:
       - /app/node_modules
       - .:/app
+  # Service to run tests
+  tests:
+      # This will build locally using the specified dockerfile
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    # Preserves /app/node_modules and copies $(pwd) into /app on the container. THIS ALSO ALLOWS FOR REAL TIME UPDATES
+    volumes:
+      - /app/node_modules
+      - .:/app
+    # Starts development server
+    command: ['npm', 'run', 'test']
