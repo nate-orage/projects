@@ -5,7 +5,7 @@
     - `docker build .`
 - Dockerfile.dev
     - This will run in dev/testing environment
-    - This uses Dockerfile.dev. Build the image and start the container. The container consists of 2 services: 
+    - This uses Dockerfile.dev. Build the image and start the container. The container consists of 2 services: web and tests. 
     ```bash
     docker-compose --build
     docker run -d -p 3000:3000 <image ID>
