@@ -1,11 +1,14 @@
 version: '3'
 services:
+# Name of the web app
   web:
+    # This will build locally using the specified dockerfile
     build:
       context: .
       dockerfile: Dockerfile.dev
     ports:
       - '3000:3000'
+    # Preserves /app/node_modules and copies $(pwd) into /app on the container
     volumes:
       - /app/node_modules
       - .:/app
